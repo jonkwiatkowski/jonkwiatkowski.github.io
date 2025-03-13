@@ -9,7 +9,7 @@ plugins:
 #-------------------------------
 # General Site Settings
 title: Jonathan Kwiatkowski
-description: "Hi I'm Jon, and I'm a Data Scientist.  My portfolio focuses on recent projects, with a strong emphasis on business impact. Please visit my Github and LinkedIn pages (or download my Resume) by using the links below!"
+description: "Hi I'm Jon. I am passionate about solving business problems using Data Science & Machine Learning.  I systematically & creatively use my skillset to add tangible value to the team, the business, and the end-user.  I am constantly learning with a curious mindset and am always looking to improve.  My portfolio focuses on recent projects, with a strong emphasis on business impact. Please visit my Github and LinkedIn pages (or download my Resume) by using the links below!"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
