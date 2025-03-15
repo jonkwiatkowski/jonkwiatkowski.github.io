@@ -15,12 +15,12 @@ Our client, a grocery retailer, wants to utilize Machine Learning to reduce mail
     - [Results](#overview-results)
     - [Growth/Next Steps](#overview-growth)
 - [01. Data Overview](#data-overview)
-- [02. modeling Overview](#modeling-overview)
+- [02. Modeling Overview](#modeling-overview)
 - [03. Logistic Regression](#logreg-title)
 - [04. Decision Tree](#clftree-title)
 - [05. Random Forest](#rf-title)
 - [06. KNN](#knn-title)
-- [07. modeling Summary](#modeling-summary)
+- [07. Modeling Summary](#modeling-summary)
 - [08. Application](#modeling-application)
 - [09. Growth & Next Steps](#growth-next-steps)
 
@@ -129,7 +129,7 @@ After this data pre-processing in Python, we have a dataset for modeling that co
 | average_basket_value | Independent | The average spend per transaction for the customer in ABC Grocery - 3 months pre campaign |
 
 <br>
-# modeling Overview  <a name="modeling-overview"></a>
+# Modeling Overview  <a name="modeling-overview"></a>
 
 We will build a model that looks to accurately predict *signup_flag*, based upon the customer metrics listed above.
 
@@ -645,7 +645,7 @@ data_for_model.dropna(how = "any", inplace = True)
 ```
 
 <br>
-##### Split Out Data For modeling
+##### Split Out Data for Modeling
 
 In exactly the same way we did for Logistic Regression, in the next code block we do two things, we firstly split our data into an **X** object which contains only the predictor variables, and a **y** object that contains only our dependent variable.
 
@@ -943,7 +943,7 @@ data_for_model.dropna(how = "any", inplace = True)
 ```
 
 <br>
-##### Split Out Data For modeling
+##### Split Out Data for Modeling
 
 In exactly the same way we did for both Logistic Regression & our Decision Tree, in the next code block we do two things, we firstly split our data into an X object which contains only the predictor variables, and a y object that contains only our dependent variable.
 
