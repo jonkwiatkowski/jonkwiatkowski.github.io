@@ -327,7 +327,7 @@ Based on these results, it does appear we do have a skew toward Cluster 0 with C
 <br>
 ##### Cluster Attributes
 
-To understand what these different behaviours or characteristics are, we can look to analyse the attributes of each cluster, in terms of the variables we fed into the k-means algorithm.
+To understand what these different behaviours or characteristics are, we can look to analyze the attributes of each cluster, in terms of the variables we fed into the k-means algorithm.
 
 <br>
 ```python
