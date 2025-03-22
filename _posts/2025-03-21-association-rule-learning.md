@@ -5,7 +5,7 @@ image: "/posts/association-rules-title-img.png"
 tags: [Association Rule Learning, Python]
 ---
 
-In this project we use Association Rule Learning to analyse the transactional relationships & dependencies between products in the alcohol section of a grocery store.
+In this project we use Association Rule Learning to analyze the transactional relationships & dependencies between products in the alcohol section of a grocery store.
 
 # Table of contents
 
@@ -35,7 +35,7 @@ They have provided us a sample of 3,500 alcohol transactions - our task is fairl
 <br>
 ### Actions <a name="overview-actions"></a>
 
-Based upon the tasks at hand - we apply Association Rule Learning, specifically *Apriori* to examine & analyse the strength of relationship between different products within the transactional data.
+Based upon the tasks at hand - we apply Association Rule Learning, specifically *Apriori* to examine & analyze the strength of relationship between different products within the transactional data.
 
 We firstly installed the apyori package, which contains all of the required functionality for this task.
 
@@ -272,9 +272,9 @@ RelationRecord(items=frozenset({'America White', 'American Rose'}), support=0.02
 
 ```
 <br>
-The output from the algorithm is in the form of a generator. We covert this to a list as this is easier to manipulate & analyse.  
+The output from the algorithm is in the form of a generator. We covert this to a list as this is easier to manipulate & analyze.  
 
-Based upon the parameters we set when applying the algorithm, we get 132 product pairs.  We print out the first element from the list to see what the output looks like, and while this contains all the key information we need - to make it easier to analyse (and more accessible & useable for stakeholders) - in the next code snippet, we extract the key elements and use list comprehension to re-work this data to exist as a Pandas DataFrame.
+Based upon the parameters we set when applying the algorithm, we get 132 product pairs.  We print out the first element from the list to see what the output looks like, and while this contains all the key information we need - to make it easier to analyze (and more accessible & useable for stakeholders) - in the next code snippet, we extract the key elements and use list comprehension to re-work this data to exist as a Pandas DataFrame.
 
 ```python
 
