@@ -445,7 +445,7 @@ plt.show()
 <br>
 The aim is to have a high proportion of observations falling into the top left cell (predicted non-signup and actual non-signup) and the bottom right cell (predicted signup and actual signup).
 
-Since the proportion of signups in our data was around 30:70 we will next analyse not only Classification Accuracy, but also Precision, Recall, and F1-Score which will help us assess how well our model has performed in reality.
+Since the proportion of signups in our data was around 30:70 we will next analyze not only Classification Accuracy, but also Precision, Recall, and F1-Score which will help us assess how well our model has performed in reality.
 
 <br>
 ##### Classification Performance Metrics
@@ -763,7 +763,7 @@ plt.show()
 <br>
 The aim is to have a high proportion of observations falling into the top left cell (predicted non-signup and actual non-signup) and the bottom right cell (predicted signup and actual signup).
 
-Since the proportion of signups in our data was around 30:70 we will again analyse not only Classification Accuracy, but also Precision, Recall, and F1-Score as they will help us assess how well our model has performed from different points of view.
+Since the proportion of signups in our data was around 30:70 we will again analyze not only Classification Accuracy, but also Precision, Recall, and F1-Score as they will help us assess how well our model has performed from different points of view.
 
 <br>
 ##### Classification Performance Metrics
@@ -1064,7 +1064,7 @@ plt.show()
 <br>
 The aim is to have a high proportion of observations falling into the top left cell (predicted non-signup and actual non-signup) and the bottom right cell (predicted signup and actual signup).
 
-Since the proportion of signups in our data was around 30:70 we will again analyse not only Classification Accuracy, but also Precision, Recall, and F1-Score as they will help us assess how well our model has performed from different points of view.
+Since the proportion of signups in our data was around 30:70 we will again analyze not only Classification Accuracy, but also Precision, Recall, and F1-Score as they will help us assess how well our model has performed from different points of view.
 
 <br>
 ##### Classification Performance Metrics
@@ -1521,7 +1521,7 @@ The aim is to have a high proportion of observations falling into the top left c
 
 The results here are interesting - all of the errors are where the model incorrectly classified *delivery club* signups as non-signups - the model made no errors when classifying non-signups non-signups.
 
-Since the proportion of signups in our data was around 30:70 we will next analyse not only Classification Accuracy, but also Precision, Recall, and F1-Score which will help us assess how well our model has performed in reality.
+Since the proportion of signups in our data was around 30:70 we will next analyze not only Classification Accuracy, but also Precision, Recall, and F1-Score which will help us assess how well our model has performed in reality.
 
 <br>
 ##### Classification Performance Metrics
