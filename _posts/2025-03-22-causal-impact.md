@@ -87,9 +87,9 @@ But to understand this *robustly & reliably* we really need to understand what *
 
 In most cases the trends *preceding the event in question* isn’t tame, it is filled with lumps and bumps and ups and downs.  When some key event does take place, understanding what *would have happened had the event not taken place* so we can estimate the true impact can be difficult!
 
-In many cases, the event that we’re analysing is part of a randomised & controlled experiment, and this means understanding the difference between the group that was affected by the event can be compared to a control group, that was purposely held back from the effect of the event.
+In many cases, the event that we’re analysing is part of a randomized & controlled experiment, and this means understanding the difference between the group that was affected by the event can be compared to a control group, that was purposely held back from the effect of the event.
 
-But there are a lot of cases where we just can’t run a randomised experiment, either because it’s expensive, or potentially it’s just impossible.  As an example, in the case of measuring the change in a share price after an event, we don’t really have a direct control group to lean on for comparison purposes.
+But there are a lot of cases where we just can’t run a randomized experiment, either because it’s expensive, or potentially it’s just impossible.  As an example, in the case of measuring the change in a share price after an event, we don’t really have a direct control group to lean on for comparison purposes.
 
 An approach that works really well in both scenarios, is Causal Impact Analysis.
 
@@ -104,7 +104,7 @@ The *comparable data* that we pass in can be a control group, another set of rel
 
 It must not be affected by the event that we’re measuring, but it must be predictive of our output, or have some relationship with our initial time-series data.
 
-So, in the case of randomised experiment, we could use the control group as our additional set of data.
+So, in the case of randomized experiment, we could use the control group as our additional set of data.
 
 In the case where we don't have a control group, we need to find other sets of data that meet the aforementoined rules. These must not be affected by the event, but they should have some relationship or correlation with the time-series data we’re measuring.  If we were measuring stock prices, perhaps we could use other stocks that are in a similar industry to us.  If we were measuring the sales of a certain section of the grocery store, say health and beauty products, perhaps our second time-series could be the sales of another non-food category in the store.
 
@@ -112,14 +112,14 @@ Either way, this additional data provides the algorithm insights into the trends
 
 The algorithm uses these insights to models the relationship between the two (or more) time-series in the pre-period.  In other words, it finds a set of rules that best predict the time-series of interest, based on the movements and fluctuations of the other time-series that we provided it.
 
-Once the algorithm has modelled this relationship, it then looks to apply the learnings from this model in the post-period, the result of which is an estimation for the counterfactual, or what the model *believes would have happened* to our time series if our event never took place!
+Once the algorithm has modeled this relationship, it then looks to apply the learnings from this model in the post-period, the result of which is an estimation for the counterfactual, or what the model *believes would have happened* to our time series if our event never took place!
 
 Once we have this counterfactual, we can proceed to calculate the estimation for the causal effect, or in other words, the effect caused by our event!
 
 <br>
 #### Application
 
-Here we will utilise a Python package called **pycausalimpact** to apply this algorithm to our data.  This will model the relationships, and provide very useful plots and summarises to help us understand the results.
+Here we will utilize a Python package called **pycausalimpact** to apply this algorithm to our data.  This will model the relationships, and provide very useful plots and summarizes to help us understand the results.
 
 ___
 <br>
