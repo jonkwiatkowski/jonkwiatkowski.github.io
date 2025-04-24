@@ -5,7 +5,7 @@ image: "/posts/cnn-fruit-classification-title-img.png"
 tags: [Deep Learning, CNN, Data Science, Computer Vision, Python]
 ---
 
-In this project we build & optimise a Convolutional Neural Network to classify images of fruits, with the goal of helping a grocery retailer enhance & scale their sorting & delivery processes. 
+In this project we build & optimize a Convolutional Neural Network to classify images of fruits, with the goal of helping a grocery retailer enhance & scale their sorting & delivery processes. 
 
 # Table of contents
 
@@ -33,7 +33,7 @@ ___
 
 Our client had an interesting proposal put forward to them, and requested our help to assess whether it was viable.
 
-At a recent tech conference, they spoke to a contact from a robotics company that creates robotic solutions that help other businesses scale and optimise their operations.
+At a recent tech conference, they spoke to a contact from a robotics company that creates robotic solutions that help other businesses scale and optimize their operations.
 
 Their representative mentioned that they had built a prototype for a robotic sorting arm that could be used to pick up and move products off a platform.  It would use a camera to "see" the product, and could be programmed to move that particular product into a designated bin, for further processing.
 
@@ -47,7 +47,7 @@ If this was successful and put into place on a larger scale, the client would be
 <br>
 ### Actions <a name="overview-actions"></a>
 
-We utilise the *Keras* Deep Learning library for this task.
+We utilize the *Keras* Deep Learning library for this task.
 
 We start by creating our pipeline for feeding training & validation images in batches, from our local directory, into the network.  We investigate & quantify predictive performance epoch by epoch on the validation set, and then also on a held-back test set.
 
@@ -57,9 +57,9 @@ Our first refinement is to add **Dropout** to tackle the issue of overfitting wh
 
 We then add in **Image Augmentation** to our data pipeline to increase the variation of input images for the network to learn from, resulting in a more robust results as well as also address overfitting.
 
-With these additions in place, we utlise *keras-tuner* to optimise our network architecture & tune the hyperparameters.  The best network from this testing contains **3 Convolutional Layers**, each followed by **Max Pooling** Layers.  The first Convolutional Layer has **96 filters**, the second & third have **64 filters**.  The output of this third layer is flattened and passed to a **single Dense (Fully Connected) layer** with **160 neurons**.  The Dense Layer has **Dropout** applied with a **dropout rate of 0.5**.  The output from this is passed to the output layer.  Again, we apply the **relu** activation function on all layers, and use the **adam** optimizer.
+With these additions in place, we utlize *keras-tuner* to optimize our network architecture & tune the hyperparameters.  The best network from this testing contains **3 Convolutional Layers**, each followed by **Max Pooling** Layers.  The first Convolutional Layer has **96 filters**, the second & third have **64 filters**.  The output of this third layer is flattened and passed to a **single Dense (Fully Connected) layer** with **160 neurons**.  The Dense Layer has **Dropout** applied with a **dropout rate of 0.5**.  The output from this is passed to the output layer.  Again, we apply the **relu** activation function on all layers, and use the **adam** optimizer.
 
-Finally, we utilise **Transfer Learning** to compare our network's results against that of the pre-trained **VGG16** network.
+Finally, we utilize **Transfer Learning** to compare our network's results against that of the pre-trained **VGG16** network.
 
 <br>
 <br>
@@ -75,7 +75,7 @@ In terms of Classification Accuracy on the Test Set, we saw:
 * Baseline Network: **75%**
 * Baseline + Dropout: **85%**
 * Baseline + Image Augmentation: **93%**
-* Optimised Architecture + Dropout + Image Augmentation: **95%**
+* Optimized Architecture + Dropout + Image Augmentation: **95%**
 * Transfer Learning Using VGG16: **98%**
 
 Tuning the networks architecture with Keras-Tuner gave us a great boost, but was also very time intensive - however if this time investment results in improved accuracy then it is time well spent.
@@ -179,7 +179,7 @@ These pixel values are the *input* for a Convolutional Neural Network.  It needs
 
 The pixel values themselves don't hold much useful information on their own - so the network needs to turn them into *features* much like we do as humans.
 
-A big part of this process is called **Convolution** where each input image is scanned over, and compared to many different, and smaller filters, to compress the image down into something more generalised.  This process not only helps reduce the problem space, it also helps reduce the network's sensitivy to minor changes, in other words to know that two images are of the same object, even though the images are not *exactly* the same.
+A big part of this process is called **Convolution** where each input image is scanned over, and compared to many different, and smaller filters, to compress the image down into something more generalized.  This process not only helps reduce the problem space, it also helps reduce the network's sensitivy to minor changes, in other words to know that two images are of the same object, even though the images are not *exactly* the same.
 
 A somewhat similar process called **Pooling** is also applied to faciliate this *generalisation* even further.  A CNN can contain many of these Convolution & Pooling layers - with deeper layers finding more abstract features.
 
@@ -342,7 +342,7 @@ This gap is over-fitting.
 
 Focusing on the lower plot above (Classification Accuracy) - it appears that our network is learning the features of the training data *so well* that after about 20 or so epochs it is *perfectly* predicting those images - but on the validation set, it never passes approximately **83% Classification Accuracy**.
 
-We do not want over-fitting! It means that we're risking our predictive performance on new data.  The network is not learning to generalise, meaning that if something slightly 
+We do not want over-fitting! It means that we're risking our predictive performance on new data.  The network is not learning to generalize, meaning that if something slightly 
 different comes along then it's going to really, really struggle to predict well, or at least predict reliably!
 
 We will look to address this with some clever concepts, and you will see those in the next sections.
@@ -666,7 +666,7 @@ Common transformation techniques are:
 * Horizontal/Vertical Flipping
 * Brightness Alteration
 
-When applying Image Augmentation using Keras' ImageDataGenerator class, we do this "on-the-fly" meaning the network does not actually train on the *original* training set image, but instead on the generated/transformed *versions* of the image - and this version changes each epoch.  In other words - for each epoch that the network is trained, each image will be called upon, and then randomly transformed based upon the specified parameters - and because of this variation, the network learns to generalise a lot better for many different scenarios.
+When applying Image Augmentation using Keras' ImageDataGenerator class, we do this "on-the-fly" meaning the network does not actually train on the *original* training set image, but instead on the generated/transformed *versions* of the image - and this version changes each epoch.  In other words - for each epoch that the network is trained, each image will be called upon, and then randomly transformed based upon the specified parameters - and because of this variation, the network learns to generalize a lot better for many different scenarios.
 
 <br>
 #### Implementing Image Augmentation
@@ -798,9 +798,9 @@ So far, with our Fruit Classification task, we have:
 
 * Started with a baseline model
 * Added Dropout to help with overfitting
-* Utilised Image Augmentation
+* Utilized Image Augmentation
 
-The addition of Dropout, and Image Augmentation boosted both performance and robustness - but there is one thing we've not tinkered with yet, and something that *could* have a big impact on how well the network learns to find and utilise important features for classifying our fruits - and that is the network *architecture*!
+The addition of Dropout, and Image Augmentation boosted both performance and robustness - but there is one thing we've not tinkered with yet, and something that *could* have a big impact on how well the network learns to find and utilize important features for classifying our fruits - and that is the network *architecture*!
 
 So far, we've just used 2 convolutional layers, each with 32 filters, and we've used a single Dense layer, also, just by coincidence, with 32 neurons - and we admitted that this was just a place to start, our baseline.
 
@@ -808,7 +808,7 @@ One way for us to figure out if there are *better* architectures, would be to ju
 
 As you can imagine, we could start testing all of these things, and noting down performances, but that would be quite messy.
 
-Here we will instead utlise *Keras Tuner* which will make this a whole lot easier for us!
+Here we will instead utlize *Keras Tuner* which will make this a whole lot easier for us!
 
 At a high level, with Keras Tuner, we will ask it to test, a whole host of different architecture and parameter options, based upon some specifications that we put in place.  It will go off and run some tests, and return us all sorts of interesting summary statistics, and of course information about what worked best.
 
@@ -913,7 +913,7 @@ Once we have the testing logic in place - we use want to put in place the specif
 In the code below, we set parameters to:
 
 * Point to the network *function* with the testing logic (hypermodel)
-* Set the metric to optimise for (objective)
+* Set the metric to optimize for (objective)
 * Set the number of random network configurations to test (max_trials)
 * Set the number of times to try each tested configuration (executions_per_trial)
 * Set the details for the output of logging & results
@@ -989,7 +989,7 @@ model.compile(loss = 'categorical_crossentropy',
 
 ```
 <br>
-The below shows us more clearly our optimised architecture:
+The below shows us more clearly our optimized architecture:
 
 ```
 _________________________________________________________________
@@ -1033,7 +1033,7 @@ _________________________________________________________________
 ```
 
 <br>
-Our optimised architecture has a total of 2.7 million parameters, a step up from 1.1 million in the baseline architecture.
+Our optimized architecture has a total of 2.7 million parameters, a step up from 1.1 million in the baseline architecture.
 
 <br>
 #### Training The Updated Network
@@ -1065,7 +1065,7 @@ We run the exact same code as we did for the earlier networks, with the only cha
 <br>
 #### Test Set Classification Accuracy
 
-Our optimised network, with both Dropout & Image Augmentation in place, scored **95%** on the Test Set, again marginally higher than what we had seen from the other networks so far.
+Our optimized network, with both Dropout & Image Augmentation in place, scored **95%** on the Test Set, again marginally higher than what we had seen from the other networks so far.
 
 <br>
 #### Test Set Confusion Matrix
@@ -1100,7 +1100,7 @@ So, while overall our test set accuracy was 95% - for each individual class we s
 * Lemon: 100%
 * Orange: 100%
 
-All classes here are being predicted *at least as accurate or better* when compared to the best network so far - so our optimised architecture does appear to have helped!
+All classes here are being predicted *at least as accurate or better* when compared to the best network so far - so our optimized architecture does appear to have helped!
 
 ___
 <br>
@@ -1109,11 +1109,11 @@ ___
 <br>
 #### Transfer Learning Overview
 
-Transfer Learning is an extremely powerful way for us to utilise pre-built, and pre-trained networks, and apply these in a clever way to solve *our* specific Deep Learning based tasks.  It consists of taking features learned on one problem, and leveraging them on a new, similar problem!
+Transfer Learning is an extremely powerful way for us to utilize pre-built, and pre-trained networks, and apply these in a clever way to solve *our* specific Deep Learning based tasks.  It consists of taking features learned on one problem, and leveraging them on a new, similar problem!
 
 For image based tasks this often means using all the the *pre-learned* features from a large network, so all of the convolutional filter values and feature maps, and instead of using it to predict what the network was originally designed for, piggybacking it, and training just the last part for some other task.
 
-The hope is, that the features which have already been learned will be good enough to differentiate between our new classes, and we’ll save a whole lot of training time (and be able to utilise a network architecture that has potentially already been optimised).
+The hope is, that the features which have already been learned will be good enough to differentiate between our new classes, and we’ll save a whole lot of training time (and be able to utilize a network architecture that has potentially already been optimized).
 
 For our Fruit Classification task we will be utilising a famous network known as **VGG16**.  This was designed back in 2014, but even by todays standards is a fairly heft network.  It was trained on the famous *ImageNet* dataset, with over a million images across one thousand different image classes. Everything from goldfish to cauliflowers to bottles of wine, to scuba divers!
 
@@ -1352,7 +1352,7 @@ In terms of Classification Accuracy on the Test Set, we saw:
 * Baseline Network: **75%**
 * Baseline + Dropout: **85%**
 * Baseline + Image Augmentation: **93%**
-* Optimised Architecture + Dropout + Image Augmentation: **95%**
+* Optimized Architecture + Dropout + Image Augmentation: **95%**
 * Transfer Learning Using VGG16: **98%**
 
 Tuning the networks architecture with Keras-Tuner gave us a great boost, but was also very time intensive - however if this time investment results in improved accuracy then it is time well spent.
