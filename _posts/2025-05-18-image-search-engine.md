@@ -59,7 +59,7 @@ We test two different images, and plot the search results along with the cosine 
 
 The way we have coded this up is very much for the "proof of concept".  In practice we would definitely have the last section of the code (where we submit a search) isolated, and running from all of the saved objects that we need - we wouldn't include it in a single script like we have here.
 
-Also, rather than having to fit the Nearest Neighbours to our *feature_vector_store* each time a search is submitted, we could store that object as well.
+Also, rather than having to fit the Nearest Neighbors to our *feature_vector_store* each time a search is submitted, we could store that object as well.
 
 When applying this in production, we also may want to code up a script that easily adds or removes images from the feature store.  The products that are available in the clients store would be changing all the time, so we'd want a nice easy way to add new feature vectors to the feature_vector_store object - and also potentially a way to remove search results coming back if that product was out of stock, or no longer part of the suite of products that were sold.
 
@@ -71,7 +71,7 @@ We only looked at Cosine Similarity here, it would be interesting to investigate
 
 It would be beneficial to come up with a way to quantify the quality of the search results.  This could come from customer feedback, or from click-through rates on the site.
 
-Here we utilised VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
+Here we utilized VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
 
 <br>
 <br>
@@ -98,11 +98,11 @@ ___
 <br>
 #### Overview
 
-Transfer Learning is an extremely powerful way for us to utilise pre-built, and pre-trained networks, and apply these in a clever way to solve *our* specific Deep Learning based tasks.  It consists of taking features learned on one problem, and leveraging them on a new, similar problem!
+Transfer Learning is an extremely powerful way for us to utilize pre-built, and pre-trained networks, and apply these in a clever way to solve *our* specific Deep Learning based tasks.  It consists of taking features learned on one problem, and leveraging them on a new, similar problem!
 
 For image based tasks this often means using all the the *pre-learned* features from a large network, so all of the convolutional filter values and feature maps, and instead of using it to predict what the network was originally designed for, piggybacking it, and training just the last part for some other task.
 
-The hope is, that the features which have already been learned will be good enough to differentiate between our new classes, and we’ll save a whole lot of training time (and be able to utilise a network architecture that has potentially already been optimised).
+The hope is, that the features which have already been learned will be good enough to differentiate between our new classes, and we’ll save a whole lot of training time (and be able to utilize a network architecture that has potentially already been optimized).
 
 For our Fruit Classification task we will be utilising a famous network known as **VGG16**.  This was designed back in 2014, but even by todays standards is a fairly heft network.  It was trained on the famous *ImageNet* dataset, with over a million images across one thousand different image classes. Everything from goldfish to cauliflowers to bottles of wine, to scuba divers!
 
@@ -218,7 +218,7 @@ _________________________________________________________________
 
 ```
 <br>
-If we hadn't added that last parameter of "pooling = avg" then the final layer would have been that MaxPoolingLayer of shape 7 by 7 by 512. Instead however, the Global Average Pooling logic was added, and this means we get that single array that is of size 512.  In other words, all of the feature maps from that final Max Pooling layer are summarised down into one vector of 512 numbers, and for each image these numbers will represent it's features. This feature vector is what we will be using to compare our base set of images, to any given search image to assess the similarity!
+If we hadn't added that last parameter of "pooling = avg" then the final layer would have been that MaxPoolingLayer of shape 7 by 7 by 512. Instead however, the Global Average Pooling logic was added, and this means we get that single array that is of size 512.  In other words, all of the feature maps from that final Max Pooling layer are summarized down into one vector of 512 numbers, and for each image these numbers will represent it's features. This feature vector is what we will be using to compare our base set of images, to any given search image to assess the similarity!
 
 ___
 <br>
@@ -242,7 +242,7 @@ def preprocess_image(filepath):
     return image
 
 # image featurisation function
-def featurise_image(image):
+def featurize_image(image):
     
     feature_vector = model.predict(image)
     
@@ -259,7 +259,7 @@ The *preprocess_image* function does the following:
 * Applies the custom pre-processing logic for VGG16 that we imported from Keras
 * Returns the image as an array
 
-The *featurise_image* function does the following:
+The *featurize_image* function does the following:
 
 * Receives the image as an array
 * Passes the array through the VGG16 architecture
@@ -286,13 +286,13 @@ feature_vector_store = np.empty((0,512))
 ```
 
 <br>
-#### Preprocess & Featurise Base-Set Images
+#### Preprocess & Featurize Base-Set Images
 
 We now want to preprocess & feature all 300 images in our base-set.  To do this we execute a loop and apply the two functions we created earlier.  For each image, we append the filename, and the feature vector to stores.  We then save these stores, for future use when a search is executed.
 
 ```python
 
-# pass in & featurise base image set
+# pass in & featurize base image set
 for image in listdir(source_dir):
     
     print(image)
@@ -304,7 +304,7 @@ for image in listdir(source_dir):
     preprocessed_image = preprocess_image(source_dir + image)
     
     # extract the feature vector
-    feature_vector = featurise_image(preprocessed_image)
+    feature_vector = featurize_image(preprocessed_image)
     
     # append feature vector for similarity calculations
     feature_vector_store = np.append(feature_vector_store, feature_vector, axis = 0)
@@ -319,7 +319,7 @@ ___
 <br>
 # Execute Search <a name="execute-search"></a>
 
-With the base-set featurised, we can now run a search on a new image from a customer!
+With the base-set featurized, we can now run a search on a new image from a customer!
 
 <br>
 #### Setup
@@ -350,15 +350,15 @@ The search image we are going to use for illustration here is below:
 ![alt text](/img/posts/search-engine-search1.jpg "VGG16 Architecture")
 
 <br>
-#### Preprocess & Featurise Search Image
+#### Preprocess & Featurize Search Image
 
 Using the same helper functions, we apply the preprocessing & featurising logic to the search image - the output again being a vector containing 512 numeric values.
 
 ```python
 
-# preprocess & featurise search image
+# preprocess & featurize search image
 preprocessed_image = preprocess_image(search_image)
-search_feature_vector = featurise_image(preprocessed_image)
+search_feature_vector = featurize_image(preprocessed_image)
 
 ```
 
@@ -377,7 +377,7 @@ By calculating this score between our search image vector and each of our base i
 
 In the code below, we:
 
-* Instantiate the Nearest Neighbours logic and specify our metric as Cosine Similarity
+* Instantiate the Nearest Neighbors logic and specify our metric as Cosine Similarity
 * Apply this to our *feature_vector_store* object (that contains a 512 length feature vector for each of our 300 base-set images)
 * Pass in our *search_feature_vector* object into the fitted Nearest Neighbors object.  This will find the eight nearest base feature vectors, and for each it will return (a) the cosine distance, and (b) the index of that feature vector from our *feature_vector_store* object.
 * Convert the outputs from arrays to lists (for ease when plotting the results)
@@ -385,14 +385,14 @@ In the code below, we:
 
 ```python
 
-# instantiate nearest neighbours logic
-image_neighbours = NearestNeighbors(n_neighbors = search_results_n, metric = 'cosine')
+# instantiate nearest neighbors logic
+image_neighbors = NearestNeighbors(n_neighbors = search_results_n, metric = 'cosine')
 
 # apply to our feature vector store
-image_neighbours.fit(feature_vector_store)
+image_neighbors.fit(feature_vector_store)
 
 # return search results for search image (distances & indices)
-image_distances, image_indices = image_neighbours.kneighbors(search_feature_vector)
+image_distances, image_indices = image_neighbors.kneighbors(search_feature_vector)
 
 # convert closest image indices & distances to lists
 image_indices = list(image_indices[0])
@@ -458,7 +458,7 @@ ___
 
 The way we have coded this up is very much for the "proof of concept".  In practice we would definitely have the last section of the code (where we submit a search) isolated, and running from all of the saved objects that we need - we wouldn't include it in a single script like we have here.
 
-Also, rather than having to fit the Nearest Neighbours to our *feature_vector_store* each time a search is submitted, we could store that object as well.
+Also, rather than having to fit the Nearest Neighbors to our *feature_vector_store* each time a search is submitted, we could store that object as well.
 
 When applying this in production, we also may want to code up a script that easily adds or removes images from the feature store.  The products that are available in the clients store would be changing all the time, so we'd want a nice easy way to add new feature vectors to the feature_vector_store object - and also potentially a way to remove search results coming back if that product was out of stock, or no longer part of the suite of products that were sold.
 
@@ -470,4 +470,4 @@ We only looked at Cosine Similarity here, it would be interesting to investigate
 
 It would be beneficial to come up with a way to quantify the quality of the search results.  This could come from customer feedback, or from click-through rates on the site.
 
-Here we utilised VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
+Here we utilized VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
